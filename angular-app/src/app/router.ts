@@ -1,14 +1,12 @@
 import { Routes } from '@angular/router';
-import { AboutComponent } from './about.component';
 import { NotFoundComponent } from './core';
 
 export const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: 'products' },
+  { path: '', pathMatch: 'full', redirectTo: 'main' },
   {
-    path: 'products',
+    path: 'main',
     loadChildren: () =>
-      import('./products/products.module').then((m) => m.ProductsModule),
+      import('./map/map.module').then((m) => m.MapModule),
   },
-  { path: 'about', component: AboutComponent },
   { path: '**', component: NotFoundComponent },
 ];
